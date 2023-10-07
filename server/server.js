@@ -23,19 +23,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Middleware to parse JSON requests
 app.use(express.json());
 // Serve static files from the 'public' directory
-app.use(express.static(__dirname + '/public'));
 
-// // Define a simple route
+app.use(express.static(__dirname + '/client'));
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/client/index.html');
+});
+
+// **Second root test
+// app.use(express.static(__dirname + '/public'));
+// app.get('/register', (req, res) => {
+//     res.sendFile(__dirname + '/public/register.html');
+// });
+// // Route for successful login
+// app.get('/success', (req, res) => {
+//     res.sendFile(__dirname + '/success.html');
+// });
+// // *Define a simple route
 // app.get('/', (req, res) => {
 //     res.send('Hello, World!');
 // });
-app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/public/register.html');
-});
-// Route for successful login
-app.get('/success', (req, res) => {
-    res.sendFile(__dirname + '/success.html');
-});
 
 app.post('/register', async (req, res) => {
     try {
