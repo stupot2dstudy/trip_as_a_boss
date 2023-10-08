@@ -1,10 +1,9 @@
-// authenticationMiddleware.js
 import mysql from 'mysql2/promise';
 import config from '../config.js';
 
 const pool = mysql.createPool(config.db);
 
-export const authenticationMiddleware = async (req, res, next) => {
+export async function authenticationMiddleware(req, res, next) {
     try {
         const { username, email } = req.body;
 

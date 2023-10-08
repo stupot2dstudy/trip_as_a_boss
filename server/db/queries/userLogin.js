@@ -26,3 +26,20 @@ export async function loginUser(username, password) {
         throw err;
     }
 }
+
+export async function getUserById(userId) {
+    try {
+        const connection = await pool.getConnection();
+        const [rows] = await connection.query('SELECT * FROM users WHERE id = ?', [userId]);
+        connection.release();
+
+        if (rows.length === 1) {
+            return rows[0];
+        } else {
+            return null;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+

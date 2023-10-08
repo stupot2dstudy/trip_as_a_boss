@@ -2,7 +2,7 @@
 
 import dotenv from 'dotenv';
 
-dotenv.config(); // Load environment variables from .env
+dotenv.config(); // Loads variables from .env into process.env
 
 const config = {
     db: {
@@ -12,6 +12,7 @@ const config = {
         database: process.env.DB_DATABASE,
     },
     port: process.env.PORT,
+    secret: process.env.SECRET_KEY, // Add this line to export secretKey
 };
 
 export default config;
