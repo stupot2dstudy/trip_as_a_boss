@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Recommendation</title>
+</head>
+<body>
+    <h1>Create Recommendation</h1>
+    <form action="/recommendations" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <!-- Replace the <textarea> with an <input> for "likes" -->
+        <label for="likes">Likes:</label>
+        <input type="number" id="likes" name="likes" value="0" required><br><br>
+
+        <!-- Add a new input field for "commentaries" -->
+        <label for="commentaries">Commentaries:</label>
+        <input type="text" id="commentaries" name="commentaries"><br><br>
+
+        <label for="creatorName">Creator Name:</label>
+        <input type="text" id="creatorName" name="creatorName" required><br><br>
+
+        <label for="creatorAvatar">Creator Avatar (optional):</label>
+        <input type="text" id="creatorAvatar" name="creatorAvatar"><br><br>
+
+        <button type="submit">Create Recommendation</button>
+    </form>
+</body>
+</html>

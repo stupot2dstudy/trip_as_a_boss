@@ -2,7 +2,6 @@
 
 import express from 'express';
 import { registerUser } from '../db/queries/userRegistration.js'; // Import the registerUser function
-import Joi from 'joi'; // Import the Joi module
 import { registrationSchema } from '../db/queries/validation.js'; // Import the Joi schema
 
 const registerRoute = express.Router();

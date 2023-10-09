@@ -12,6 +12,7 @@ import protectedResourceRoute from './routes/protectedResourceRoute.js';
 import loginRoute from './routes/loginRoute.js';
 import { authenticationMiddleware } from './middlewares/authenticationMiddleware.js';
 import config from './config.js';
+import recommendationRouter from './routes/recommendationsRouter.js'; // Import the recommendation router
 //import fileUploadRoute from './routes/fileUploadRoute.js'; // Import the fileUploadRoute IN PROGRESS
 
 const app = express();
@@ -26,7 +27,11 @@ app.use(registerRoute);
 app.use(loginRoute);
 app.use(successRoute);
 app.use(protectedResourceRoute);
+// Use the recommendation router
+app.use(recommendationRouter);
 //app.use(fileUploadRoute); //IN PROGRESS
+
+
 app.use(notFoundMiddleware);
 
 initializeDatabase();
