@@ -42,7 +42,7 @@ Before running the server, you'll need to configure your environment variables. 
 ## Running the Server
 To start the server, run the following command:
 ```bash
-   npm install
+   node --watch server.js
    ```
 The server will be running at http://localhost:3000.
 
