@@ -30,17 +30,17 @@ Before you begin, make sure you have the following installed on your system:
    ```
 
 ## Configuration
-    Before running the server, you'll need to configure your environment variables. Create a .env file in the root directory of your project and set the following environment variables:
+Before running the server, you'll need to configure your environment variables. Create a .env file in the root directory of your project and set the following environment variables:
 
-PORT=3000           # Port for the server to listen on
-DB_HOST=localhost   # Database host
-DB_USER=root        # Database username
-DB_PASSWORD=password # Database password
-DB_DATABASE=mydb    # Database name
-SECRET_KEY=mysecret # Secret key for JWT (JSON Web Token) authentication
+      PORT=3000           # Port for the server to listen on
+      DB_HOST=localhost   # Database host
+      DB_USER=root        # Database username
+      DB_PASSWORD=password # Database password
+      DB_DATABASE=mydb    # Database name
+      SECRET_KEY=mysecret # Secret key for JWT (JSON Web Token) authentication
 
 ## Running the Server
-    To start the server, run the following command:
+To start the server, run the following command:
 ```bash
    npm install
    ```
