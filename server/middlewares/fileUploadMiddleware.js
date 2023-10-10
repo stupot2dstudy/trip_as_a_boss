@@ -1,23 +1,19 @@
 // fileUploadMiddleware.js
 
-import multer from 'multer';
+import multer from 'multer'; // Import the Multer library
 
+// Configure Multer storage and file naming
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/fileUpload'); // Specify the upload directory
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '_' + file.originalname); // Use a unique filename with the current timestamp
+    },
+});
 
-// Set up Multer storage and file filtering
-const storage = multer.memoryStorage(); // Store files in memory for this example (you can configure it to store files on disk)
-const fileFilter = (req, file, cb) => {
-    // Define the file types you want to allow
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-        cb(null, true); // Allow the file to be uploaded
-    } else {
-        cb(new Error('Invalid file type. Only JPEG and PNG files are allowed.'), false); // Reject the file
-    }
-};
+// Create a Multer instance with the configured storage
+const upload = multer({ storage: storage });
 
-// Create the Multer middleware with the defined storage and file filter
-const upload = multer({ storage, fileFilter });
-
-// Middleware function for handling file uploads
-export const fileUploadMiddleware = upload.single('file'); // 'file' is the field name in the form for the file input
-
-
+// Middleware function to handle file uploads
+export const fileUploadMiddleware = upload.single('avatar'); // 'avatar' should match the field name in your HTML form

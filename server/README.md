@@ -1,73 +1,68 @@
-# Node.js Server README
+# My Node.js Server
 
-This README provides detailed instructions for installing and running the Node.js server on your local machine.
+This Node.js server is a simple example of how to build and run a web application using Express.js. It includes features such as user registration, login, protected routes, and file uploads.
 
-## Table of Contents
+## Getting Started
 
-- [Requirements](#requirements)
-- [Dependencies](#dependencies)
-- [Configuration](#configuration)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Routes](#routes)
-- [License](#license)
+Follow these steps to set up and run the server on your local machine:
 
-## Requirements
+### Prerequisites
 
-Before you can run the server, ensure that your machine meets the following requirements:
+Before you begin, make sure you have the following installed on your system:
 
-- [Node.js](https://nodejs.org/) (version 14 or higher)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+- Node.js: [Download Node.js](https://nodejs.org/)
+- npm (Node Package Manager): npm is included with Node.js.
 
-## Dependencies
+## Installation
 
-The server relies on various Node.js packages. You can install them using npm. Run the following command in your project directory:
+1. Clone the repository to your local machine:
 
 ```bash
-npm init -y
-The following dependencies will be installed:
+   git clone git@github.com:stupot2dstudy/trip_as_a_boss.git
+   ```
+2. Navigate to the project directory:
+```bash
+   cd server
+   ```
+3. Install the project dependencies:
+```bash
+   npm install
+   ```
 
-express: Fast, unopinionated, minimalist web framework for Node.js.
-body-parser: Middleware to parse JSON requests.
-jsonwebtoken: For JSON Web Token (JWT) generation and validation.
-mariadb: MariaDB/MySQL driver for Node.js.
-dotenv: Load environment variables from a .env file.
-joi: Schema validation library (if used for data validation).
+## Configuration
+    Before running the server, you'll need to configure your environment variables. Create a .env file in the root directory of your project and set the following environment variables:
 
-Configuration
-Before running the server, configure your environment variables in a .env file. Create a .env file in the root directory of your project with the following content:
+PORT=3000           # Port for the server to listen on
+DB_HOST=localhost   # Database host
+DB_USER=root        # Database username
+DB_PASSWORD=password # Database password
+DB_DATABASE=mydb    # Database name
+SECRET_KEY=mysecret # Secret key for JWT (JSON Web Token) authentication
 
-DB_HOST=<database-host>
-DB_USER=<database-username>
-DB_PASSWORD=<database-password>
-DB_DATABASE=<database-name>
-PORT=<server-port>
+## Running the Server
+    To start the server, run the following command:
+```bash
+   npm install
+   ```
+The server will be running at http://localhost:3000.
 
-Replace the placeholders with your actual database and server configuration:
-
-<database-host>: The host address of your MariaDB or MySQL database.
-<database-username>: The username for the database.
-<database-password>: The password for the database user.
-<database-name>: The name of the database.
-<server-port>: The port on which the server will run.
-
-Note: Keep your .env file secure and do not commit it to version control.
-
-Installation
-
-Start the Node.js server by running the following command:
-
-node --watch server.js
-
-The server will start and be accessible at http://localhost:<server-port>.
-
-Routes
-The server provides the following routes:
-
-/register: Register a new user.
-/login: Authenticate and generate a JWT token.
-/protected-resource: Access a protected resource by including the JWT token in the request headers.
-
+Features
+User Registration
+Endpoint: /register
+Description: Allows users to create new accounts by providing a username, password, first name, last name, and email. User data is stored in a MySQL database.
+User Login
+Endpoint: /login
+Description: Allows registered users to log in with their username and password. Successful login generates a JSON Web Token (JWT) for authentication.
+Protected Routes
+Description: Certain routes are protected and require user authentication. Users must include a valid JWT in the request headers to access these routes.
+File Upload
+Endpoint: /upload
+Description: Allows users to upload files. Uploaded files are stored in the ./public/fileUpload directory.
 License
-This project is unlicensed
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+(`stupot2d`, `trip_as_a_boss`) with your actual project details. This `README.md` provides an overview of your Node.js server and includes instructions for setup and usage.
+
+
 

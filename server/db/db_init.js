@@ -1,15 +1,29 @@
 // db_init.js
 
-import mysql from 'mysql2/promise';
+import mysql from 'mysql2/promise'; // Import the MySQL library
 import config from '../config.js'; // Import the database configuration
+import fs from 'fs'; // Import the file system module
+
+// Function to create the ./public/fileUpload folder
+function createFileUploadFolder() {
+  const folderPath = './public/fileUpload';
+
+  // Check if the folder exists, and if not, create it
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath);
+    console.log('Created ./public/fileUpload folder.');
+  } else {
+    console.log('./public/fileUpload folder already exists.');
+  }
+}
 
 // Function to initialize the database schema
 export async function initializeDatabase() {
   try {
-    // Create a connection to the database
+    // Create a connection to the database using the configuration from 'config.js'
     const connection = await mysql.createConnection(config.db);
 
-    // SQL query to create the user table
+    // SQL query to create the 'users' table
     const createUserTableQuery = `
             CREATE TABLE IF NOT EXISTS users (
                 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,26 +35,29 @@ export async function initializeDatabase() {
             )
         `;
 
-    // SQL query to create the recommendations table
+    // SQL query to create the 'recommendations' table
     const createRecommendationsTableQuery = `
-          CREATE TABLE IF NOT EXISTS recommendations (
-            id VARCHAR(20) PRIMARY KEY,
-            title VARCHAR(255) NOT NULL,
-            likes INT,
-            creator_id INT,
-            creator_avatar VARCHAR(255),
-            commentaries VARCHAR(255) DEFAULT 'No commentaries', -- Provide a default value
-            FOREIGN KEY (creator_id) REFERENCES users(id),
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-        );
+            CREATE TABLE IF NOT EXISTS recommendations (
+                id VARCHAR(20) PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                likes INT,
+                creator_id INT,
+                creator_avatar VARCHAR(255),
+                commentaries VARCHAR(255) DEFAULT 'No commentaries',
+                FOREIGN KEY (creator_id) REFERENCES users(id),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            )
         `;
 
-    // Execute the user table creation query
+    // Execute the query to create the 'users' table
     await connection.query(createUserTableQuery);
 
-    // Execute the recommendations table creation query
+    // Execute the query to create the 'recommendations' table
     await connection.query(createRecommendationsTableQuery);
+
+    // Create the ./public/fileUpload folder
+    createFileUploadFolder();
 
     // Close the database connection
     await connection.end();

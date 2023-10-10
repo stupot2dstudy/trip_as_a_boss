@@ -1,23 +1,32 @@
-import express from 'express';
-import { createRecommendation, getRecommendations } from '../db/queries/recommendations.js';
-import { fileURLToPath } from 'url';
-import path from 'path';
+// recommendationsRouter.js
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import express from 'express'; // Import the Express framework
+import { createRecommendation, getRecommendations } from '../db/queries/recommendations.js'; // Import functions for creating and retrieving recommendations
+import { upvoteRecommendation, downvoteRecommendation } from '../controllers/voteController.js'; // Import functions for upvoting and downvoting recommendations
+import { fileURLToPath } from 'url'; // Import fileURLToPath to get the current filename
+import path from 'path'; // Import the path module for working with file paths
 
-const router = express.Router();
+const __filename = fileURLToPath(import.meta.url); // Get the current filename
+const __dirname = path.dirname(__filename); // Get the directory path of the current file
+
+const router = express.Router(); // Create an Express router instance
 
 // Create a new recommendation (POST request)
 router.post('/recommendations', createRecommendation);
 
-// Retrieve recommendations in JSON format
+// Retrieve recommendations in JSON format (GET request)
 router.get('/recommendations/json', getRecommendations);
 
-// Serve the HTML page when accessing the /recommendations endpoint
+// Upvote a recommendation (POST request)
+router.post('/recommendations/:id/upvote', upvoteRecommendation);
+
+// Downvote a recommendation (POST request)
+router.post('/recommendations/:id/downvote', downvoteRecommendation);
+
+// Serve the HTML page when accessing the /recommendations endpoint (GET request)
 router.get('/recommendations', (req, res) => {
-    const htmlFilePath = path.join(__dirname, '../public/recommendation.html');
-    res.sendFile(htmlFilePath);
+    const htmlFilePath = path.join(__dirname, '../public/recommendation.html'); // Construct the absolute file path to the HTML page
+    res.sendFile(htmlFilePath); // Send the HTML file as a response
 });
 
-export default router;
+export default router; // Export the router for use in other parts of your application

@@ -1,35 +1,25 @@
-import express from 'express';
-import { fileUploadMiddleware } from '../middlewares/fileUploadMiddleware.js'; // Adjust the path as needed
+// fileUploadRoute.js
 
-const fileUploadRoute = express.Router();
+import express from 'express'; // Import the Express framework
+import { processFileUpload } from '../controllers/fileUploadController.js'; // Import the fileUploadController for handling file uploads
+import { fileUploadMiddleware } from '../middlewares/fileUploadMiddleware.js'; // Import the fileUploadMiddleware for processing file uploads
+import path from 'path'; // Import the 'path' module for working with file paths
 
-fileUploadRoute.post('/upload', fileUploadMiddleware, (req, res) => {
-    try {
-        if (!req.file) {
-            return res.status(400).json({ error: 'No file uploaded' });
-        }
+const fileUploadRoute = express.Router(); // Create an Express router instance for file uploads
 
-        // Access the uploaded file data from req.file
-        const uploadedFile = req.file;
+// Handle POST requests to '/upload' using the fileUploadMiddleware and processFileUpload controller
+fileUploadRoute.post('/upload', fileUploadMiddleware, processFileUpload);
 
-        // Example: Save the uploaded file to a storage location (e.g., disk storage)
-        // You can use libraries like 'fs' to handle file operations
-        // Make sure to customize the storage path and file naming as needed
-        const storagePath = 'uploads/'; // Define the storage directory
-        const fileName = `${Date.now()}_${uploadedFile.originalname}`;
-        const filePath = `${storagePath}${fileName}`;
+// Handle GET requests to '/upload' for displaying an HTML form
+fileUploadRoute.get('/upload', (req, res) => {
+    // Get the absolute path to the directory containing this module
+    const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-        // Save the file to the specified storage path
-        // In this example, we're using the 'fs' module to write the file
-        const fs = require('fs');
-        fs.writeFileSync(filePath, uploadedFile.buffer);
+    // Construct the absolute file path to the HTML file
+    const htmlFilePath = path.join(__dirname, '../public/uploadavatar.html');
 
-        // Respond with a success message
-        res.status(200).json({ message: 'File uploaded successfully', filePath });
-    } catch (error) {
-        console.error('Error during file upload:', error);
-        res.status(500).json({ error: 'File upload failed' });
-    }
+    // Specify the root directory when sending the HTML file as a response
+    res.sendFile(htmlFilePath);
 });
 
-export default fileUploadRoute;
+export default fileUploadRoute; // Export the fileUploadRoute for use in other parts of your application

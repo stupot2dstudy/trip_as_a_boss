@@ -1,11 +1,11 @@
 // loginRoute.js
 
-import express from 'express';
-import { loginUser, getUserById } from '../db/queries/userLogin.js'; // Import the loginUser function
-import jwt from 'jsonwebtoken'; // Import the jsonwebtoken library
-import { authenticationMiddleware } from '../middlewares/authenticationMiddleware.js';
+import express from 'express'; // Import the Express framework
+import { loginUser, getUserById } from '../db/queries/userLogin.js'; // Import the loginUser and getUserById functions
+import jwt from 'jsonwebtoken'; // Import the jsonwebtoken library for handling JWTs
+import { authenticationMiddleware } from '../middlewares/authenticationMiddleware.js'; // Import the authenticationMiddleware
 
-const loginRoute = express.Router();
+const loginRoute = express.Router(); // Create an Express router instance for login routes
 
 // Define a route to get a user by ID
 loginRoute.get('/user/:userId', async (req, res) => {
@@ -24,9 +24,8 @@ loginRoute.get('/user/:userId', async (req, res) => {
     }
 });
 
-
 // Define the login route
-loginRoute.post('/login', async (req, res) => { // Add 'async' here
+loginRoute.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
         const user = await loginUser(username, password);
@@ -40,7 +39,7 @@ loginRoute.post('/login', async (req, res) => { // Add 'async' here
             });
 
             // Redirect the user to the success page with a token as a query parameter
-            res.redirect(`/success.html`);
+            res.redirect(`/success.html?token=${token}`);
         }
     } catch (error) {
         console.error('Error during login:', error);
@@ -48,10 +47,9 @@ loginRoute.post('/login', async (req, res) => { // Add 'async' here
     }
 });
 
-
-// Define a protected route that requires user authentication
+// Define a protected route that requires user authentication using the authenticationMiddleware
 loginRoute.get('/protected-resource', authenticationMiddleware, (req, res) => {
     res.json({ message: 'This is a protected resource.' });
 });
 
-export default loginRoute;
+export default loginRoute; // Export the loginRoute for use in other parts of your application

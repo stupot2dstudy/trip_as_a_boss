@@ -1,6 +1,8 @@
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { resolve, dirname } from 'path';
+// notFoundMiddleware.js
+
+import { readFileSync } from 'fs'; // Import the `readFileSync` function from the 'fs' module
+import { fileURLToPath } from 'url'; // Import the `fileURLToPath` function from the 'url' module
+import { resolve, dirname } from 'path'; // Import the `resolve` and `dirname` functions from the 'path' module
 
 // Get the current module's directory path
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -18,3 +20,4 @@ export const notFoundMiddleware = (req, res, next) => {
     // Send the custom HTML page with a 404 status code
     res.status(404).send(notFoundHtml);
 };
+
