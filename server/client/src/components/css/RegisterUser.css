@@ -1,0 +1,66 @@
+/* src/components/RegisterUser.css */
+
+/* Styling for the main registration container */
+.register-user {
+  background-image: url('../images/your-background-image.jpg'); /* Replace with your background image path */
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensure the minimum height covers the viewport height */
+  display: flex; /* Use a flexbox layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+/* Styling for the container within the registration form */
+.register-user-container {
+  background-color: #fff; /* Set the background color of the container */
+  padding: 20px; /* Add padding to the container */
+  border-radius: 5px; /* Apply rounded corners to the container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+  text-align: center; /* Center text content within the container */
+}
+
+/* Styling for the registration form header */
+.register-user h2 {
+  font-size: 24px; /* Set the font size for the header */
+  margin-bottom: 20px; /* Add margin at the bottom for spacing */
+}
+
+/* Styling for form groups (e.g., input fields and labels) */
+.formgroup {
+  margin-bottom: 15px; /* Add margin between form groups */
+  text-align: left; /* Align text content to the left */
+}
+
+/* Styling for form group labels */
+.formgroup label {
+  display: block; /* Display labels as block elements */
+  font-size: 16px; /* Set the font size for labels */
+  margin-bottom: 5px; /* Add margin below labels for spacing */
+}
+
+/* Styling for form group input fields */
+.formgroup input {
+  width: 100%; /* Set the input field width to 100% of its container */
+  padding: 10px; /* Add padding within the input fields */
+  font-size: 16px; /* Set the font size for input fields */
+  border: 1px solid #ccc; /* Add a border with a light gray color */
+  border-radius: 5px; /* Apply rounded corners to input fields */
+}
+
+/* Styling for the registration button */
+button {
+  background-color: #007bff; /* Set the background color for the button */
+  color: #fff; /* Set the text color to white */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Add padding to the button */
+  font-size: 18px; /* Set the font size for the button text */
+  border-radius: 5px; /* Apply rounded corners to the button */
+  cursor: pointer; /* Change cursor to a pointer on hover */
+}
+
+/* Styling for the registration button on hover */
+button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}

@@ -1,0 +1,57 @@
+/* Dashboard.css */
+
+/* Styling for the dashboard container */
+.dashboard-container {
+  background-image: url('../images/your-background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for the container within the dashboard */
+.dashboard-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Styling for the dashboard title */
+.dashboard-content h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Styling for content paragraphs */
+.dashboard-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Styling for loading message */
+.loading-message {
+  font-size: 16px;
+  /* You can add more styling, like color or animation, to make the loading message stand out */
+}
+
+/* Styling for buttons */
+.dashboard-content button {
+  padding: 10px 20px;
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dashboard-content button:hover {
+  background-color: #0056b3;
+}

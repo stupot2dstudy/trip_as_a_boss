@@ -1,0 +1,60 @@
+/* src/components/Welcome.css */
+
+/* Styling for the main welcome container */
+.welcome {
+    text-align: center; /* Center text content horizontally */
+    padding: 60px; /* Add padding to the container */
+    background-image: url('../images/your-background-image.jpg'); /* Replace with your background image path */
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    color: #fff; /* Set white text color */
+}
+
+/* Styling for the welcome section title */
+.welcome-title {
+    font-size: 36px; /* Set a larger font size for the title */
+    margin-bottom: 20px; /* Add margin at the bottom for spacing */
+}
+
+/* Styling for the welcome section text */
+.welcome-text {
+    font-size: 18px; /* Set the font size for the text */
+    margin-bottom: 30px; /* Add margin at the bottom for spacing */
+}
+
+/* Styling for the welcome section button */
+.welcome-button {
+    background-color: #fff; /* Set a white button background color */
+    color: #007bff; /* Set blue button text color */
+    border: none; /* Remove button border */
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 18px; /* Set the font size for the button text */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add a transition effect on hover */
+}
+
+/* Styling for the welcome section button on hover */
+.welcome-button:hover {
+    background-color: #0056b3; /* Change to a darker blue on hover */
+    color: #fff; /* Set white text on hover */
+}
+
+/* Media query for mobile screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .welcome {
+        padding: 30px; /* Adjust padding for smaller screens */
+    }
+    
+    .welcome-title {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+    
+    .welcome-text {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    
+    .welcome-button {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}

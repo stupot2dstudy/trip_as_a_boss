@@ -1,0 +1,79 @@
+/* src/components/Navbar.css */
+
+/* Styling for the main navbar container */
+.navbar {
+    display: flex; /* Use a flexbox layout */
+    flex-direction: column; /* Set the flex direction to column (vertical) */
+    align-items: center; /* Center items horizontally within the navbar */
+    background-color: #007bff; /* Set the background color */
+    color: #fff; /* Set the text color to white */
+    padding: 10px 20px; /* Add padding to the navbar */
+}
+
+/* Styling for the menu (list of navigation items) */
+.menu {
+    list-style: none; /* Remove list-style bullets */
+    display: flex; /* Use a flexbox layout for menu items */
+    flex-direction: column; /* Set the flex direction to column (vertical) */
+    gap: 20px; /* Add space between menu items */
+    margin-top: 20px; /* Move the menu down from the navbar */
+    text-align: center; /* Center menu items horizontally */
+}
+
+/* Styling for individual menu items */
+.menu li {
+    font-size: 18px; /* Set the font size for menu items */
+}
+
+/* Styling for dropdown menus */
+.dropdown {
+    position: relative; /* Use a relative position for dropdowns */
+    cursor: pointer; /* Change the cursor to a pointer */
+    text-align: center; /* Center dropdown text horizontally */
+    margin-top: 20px; /* Move the dropdown down from the previous item */
+}
+
+/* Styling for dropdown content (sub-menu) */
+.dropdown-content {
+    display: none; /* Initially hide the dropdown content */
+    position: absolute; /* Use an absolute position for dropdown content */
+    background-color: #007bff; /* Set the background color for dropdown content */
+    list-style: none; /* Remove list-style bullets */
+    padding: 0;
+    margin: 0;
+    top: 100%; /* Position the dropdown below its parent */
+    left: 0; /* Align the left edge of the dropdown with the parent */
+    z-index: 1; /* Ensure the dropdown appears above other elements */
+}
+
+/* Display dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown content on hover */
+}
+
+/* Styling for the logo link */
+.logo a {
+    text-decoration: none; /* Remove underlines from the logo link */
+    color: #fff; /* Set text color to white */
+    font-size: 24px; /* Set the font size for the logo */
+    font-weight: bold; /* Apply bold font weight */
+    margin-top: 20px; /* Move the logo down from the previous item */
+}
+
+/* Styling for the "Sign In" link/button */
+.sign-in a {
+    text-decoration: none; /* Remove underlines from the link */
+    background-color: #fff; /* Set background color to white */
+    color: #007bff; /* Set text color to blue */
+    padding: 10px 20px; /* Add padding to the button */
+    border-radius: 5px; /* Apply rounded corners */
+    font-weight: bold; /* Apply bold font weight */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add a transition effect on hover */
+    margin-top: 20px; /* Move the "Sign In" button down from the previous item */
+}
+
+/* Styling for the "Sign In" link/button on hover */
+.sign-in a:hover {
+    background-color: #0056b3; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+}

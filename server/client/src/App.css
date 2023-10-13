@@ -1,0 +1,46 @@
+/* App.css */
+
+#root {
+  max-width: 1280px; /* Set a maximum width for the #root element */
+  margin: 0 auto; /* Center the element horizontally in its container */
+  padding: 2rem; /* Add padding around the content */
+  text-align: center; /* Center text content horizontally */
+}
+
+.logo {
+  height: 6em; /* Set the height of the logo */
+  padding: 1.5em; /* Add padding around the logo */
+  will-change: filter; /* Optimize for animations */
+  transition: filter 300ms; /* Apply a filter transition effect over 300ms */
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa); /* Apply a drop shadow effect on logo hover */
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa); /* Apply a different drop shadow on logo hover for the "react" class */
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg); /* Set the initial rotation angle */
+  }
+  to {
+    transform: rotate(360deg); /* Set the final rotation angle (360 degrees for a full circle) */
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear; /* Animate the logo-spin keyframes for a logo element nested in an anchor (a) element */
+  }
+}
+
+.card {
+  padding: 2em; /* Add padding around the card */
+}
+
+.read-the-docs {
+  color: #888; /* Set the text color for elements with the "read-the-docs" class to a grayish color (#888) */
+}

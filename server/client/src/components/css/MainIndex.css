@@ -1,0 +1,30 @@
+/* MainIndex.css */
+
+/* Styling for the Main Index container */
+.main-index {
+  background-image: url('../images/your-background-image.jpg'); /* Replace with your background image path */
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  min-height: 100vh; /* Set the minimum height to cover the viewport height */
+  display: flex; /* Use a flexbox layout for centering content */
+  flex-direction: column;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+/* Styling for the container within the Main Index */
+.main-index-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px; /* Add padding to the container */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Apply a shadow effect */
+  text-align: center; /* Center text content within the container */
+}
+
+/* Styling for the Main Index header */
+.main-index h1 {
+  font-size: 24px; /* Set the font size for the header */
+  margin-bottom: 20px; /* Add margin at the bottom for spacing */
+}
+
+/* Add more styles for other elements as needed */

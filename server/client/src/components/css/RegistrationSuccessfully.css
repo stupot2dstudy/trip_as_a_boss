@@ -1,0 +1,49 @@
+/* RegistrationSuccessfully.css */
+
+/* Styling for the main container of the registration success page */
+.registration-success {
+  background-image: url('../images/your-background-image.jpg'); /* Replace with your background image path */
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensure the minimum height covers the viewport height */
+  display: flex; /* Use a flexbox layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  flex-direction: column; /* Center items in a column */
+}
+
+/* Styling for the message container */
+.registration-success-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px; /* Add padding to the container */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Apply a shadow effect */
+  text-align: center; /* Center text content within the container */
+}
+
+/* Styling for the registration success header */
+.registration-success-header {
+  font-size: 36px; /* Set the font size for the header */
+  margin-bottom: 20px; /* Add margin at the bottom for spacing */
+  color: #333; /* Set the text color */
+}
+
+/* Styling for the registration success message */
+.registration-success-message {
+  font-size: 18px; /* Set the font size for the message */
+  margin-bottom: 20px; /* Add margin at the bottom for spacing */
+  color: #555; /* Set the text color */
+}
+
+/* Styling for a link back to the login page */
+.login-link {
+  text-decoration: none; /* Remove underline from the link */
+  color: #007bff; /* Set the link color to blue */
+  font-weight: bold; /* Make the link text bold */
+}
+
+/* Styling for the link on hover */
+.login-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
