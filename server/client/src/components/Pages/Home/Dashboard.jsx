@@ -1,11 +1,10 @@
-// Dashboard.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useUser from './useUser'; // Custom hook for fetching user data
 import serverURL from '../../Config/apiConfig'; // Server API configuration
 import '../../css/Dashboard.css'; // Import your CSS file for styling
 
-function Dashboard() {
+function Dashboard({ token }) {
     const { username } = useParams(); // Get the username from route parameters
 
     // Fetch user data using the custom hook
@@ -94,6 +93,7 @@ function Dashboard() {
                                 <p>Last Name: {user.last_name}</p>
                                 <p>Password: {user.password}</p>
                                 <p>Email: {user.email}</p>
+                                <p>Token: {token}</p> {/* Display the token here */}
                             </div>
                         ) : (
                             <p className="loading-message">Loading user data...</p>
